@@ -6,51 +6,38 @@
 html {
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 body {
   width: 100%;
   height: 100%;
   margin: 0;
+  font-family: "Courier New", Courier, monospace;
   background-color: var(--bg-color);
   color: var(--textcolor);
 }
 
 canvas {
+  position: absolute;
+  z-index: 1;
   width: 100%;
   height: 100%;
 }
 
-a {
-  text-decoration: none;
-  color: var(--textcolor);
+#nameContainer {
+  height: 100%;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
-
-a:hover {
-  text-decoration: underline;
-  font-weight: bold;
+#name {
+  font-size: 4em;
+  margin: 5px;
 }
-
-.name {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  text-align: center;
-}
-
-.aboutLink {
-  position: absolute;
-  transform: rotateZ(-90deg) translateX(-50%);
-  top: 50%;
-  text-align: center;
-}
-
-.emailLink {
-  position: absolute;
-  transform: rotateZ(-90deg) translateX(-50%);
-  top: 50%;
-  right: 0%;
-  text-align: center;
+#title {
+  margin: 0px;
 }

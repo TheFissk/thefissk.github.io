@@ -15,7 +15,7 @@ void main()
     IID = float(gl_InstanceID);
     float pointNormal = xPosition + IID + (time/10000.);
 
-    float yPosition = (sin(pointNormal) + sin(pointNormal * 3.))/2.;
+    float yPosition = (sin(pointNormal) + sin(pointNormal * 3.))/1.5;
     vec4 position = vec4(xPosition, yPosition,0,1);
     gl_Position = position;
 }

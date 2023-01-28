@@ -2,9 +2,8 @@ let ctx = undefined;
 const shaderLocations = {};
 let positionBuffer = undefined;
 
-export default async (context) => {
-  ctx = context;
-
+export default async (canvas) => {
+  ctx = canvas.getContext("webgl2", { antialias: false });
   ctx.enable(ctx.DEPTH_TEST);
   ctx.enable(ctx.CULL_FACE);
   ctx.clearColor(0, 0, 0, 0);
