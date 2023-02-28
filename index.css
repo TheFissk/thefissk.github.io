@@ -3,41 +3,109 @@
   --textcolor: #eee4e9;
 }
 
-html {
-  width: 100vw;
-  height: 100vh;
-  /* overflow: hidden; */
+* {
+  box-sizing: border-box;
 }
 
 body {
-  width: 100%;
-  height: 100%;
   margin: 0;
   font-family: "Courier New", Courier, monospace;
   background-color: var(--bg-color);
   color: var(--textcolor);
 }
 
-canvas {
+h1 {
+  margin: auto;
+}
+
+a {
+  /* text-decoration: none; */
+  color: inherit;
+  font-weight: bold;
+}
+
+/*                           
+=============================================================================
+
+                        TitlePage Elements
+
+=============================================================================
+*/
+
+#TitlePage {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#display-canvas {
   position: absolute;
-  z-index: 1;
+  z-index: -1;
   width: 100%;
   height: 100%;
 }
 
 #nameContainer {
-  height: 100%;
   position: relative;
-  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
 #name {
-  font-size: 4em;
+  font-size: clamp(1vw + 2em, 10vw, 5em);
   margin: 5px;
 }
 #title {
+  font-size: clamp(1vw + 1em, 5vw, 2.5em);
   margin: 0px;
+}
+
+/*                           
+=============================================================================
+
+                        Body Elements
+
+=============================================================================
+*/
+
+#Text-Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 70em;
+  margin: auto;
+}
+
+.Text-Block {
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  /* border: solid 5px green; */
+}
+
+.Block-Title {
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  margin: auto;
+  padding: 20px 0px;
+}
+
+.Block-Text {
+  height: 100%;
+  padding-left: 1em;
+  border-left: solid 3px var(--textcolor);
+  background-color: #fff3;
+}
+
+.Background-Image {
+  padding-left: 5px;
+  width: 20em;
+  height: 20em;
+  max-height: 100%;
+  z-index: -1;
+  border-radius: 50%;
 }

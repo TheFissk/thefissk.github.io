@@ -6,16 +6,152 @@
     <meta name="viewport" content="width=1.0, initial-scale=1.0" />
     <link rel="stylesheet" href="./index.css" />
     <script type="module" src="./main.js"></script>
+
     <title>Timothy Fiss</title>
   </head>
   <body>
-    <canvas id="display-canvas">
-      Your browser doesn't support HTML5 canvases, which makes this display kind
-      pointless
-    </canvas>
-    <div id="nameContainer">
-      <h1 data-value="TIMOTHY FISS" id="name">TIMOTHY FISS</h1>
-      <h2 id="title">Computer Developer</h2>
+    <div class="page" id="TitlePage">
+      <canvas id="display-canvas">
+        Your browser doesn't support HTML5 canvases, which makes this display
+        kind pointless
+      </canvas>
+      <div id="nameContainer">
+        <h1 data-value="TIMOTHY FISS" id="name">TIMOTHY FISS</h1>
+        <h2 id="title">Computer Developer</h2>
+      </div>
+    </div>
+    <div class="page" id="Text-Container">
+      <div id="aboutMe" class="Text-Block">
+        <h2 class="Block-Title">ABOUT ME</h2>
+        <p class="Block-Text">
+          <b>Hello there!</b><br />
+          My name is Timothy Fiss and I am a Junior Computer Developer from
+          Regina, Saskatchewan. I have a passion for technology and a deep
+          interest in the field of computer science. I am constantly seeking
+          opportunities to expand my knowledge and skills in the ever-evolving
+          world of software development.<br />
+
+          With a strong foundation in programming languages such as Python,
+          Javascript, and C++, I am confident in my ability to develop
+          high-quality software applications. I am also familiar with various
+          technologies and tools including Agile methodologies, Git, and SQL.<br />
+
+          In a previous role I played a key role in enabling cross-team
+          communication and providing technical support. I am a quick learner
+          and always willing to go the extra mile to ensure projects are
+          completed to the best of my ability.<br />
+
+          Aside from my technical skills, I am a team player and value strong
+          communication and collaboration in the workplace. I am always looking
+          for ways to contribute to the success of a project and actively seek
+          out feedback to continuously improve my performance.<br />
+
+          I am excited about the opportunity to grow my career in the tech
+          industry and take on new challenges. I am open to new learning
+          opportunities and am eager to continue to expand my skill set. <br />
+        </p>
+        <img id="itsMe" src="./its me, Timothy.jpg" class="Background-Image" />
+      </div>
+
+      <h1>Projects</h1>
+
+      <div id="optical-flow" class="Text-Block">
+        <h2 class="Block-Title">Optical Flow</h2>
+        <p class="Block-Text">
+          In 2017 I read a
+          <a
+            href="https://www.sciencedirect.com/science/article/abs/pii/S0003347212002102"
+            >paper</a
+          >
+          on using the optical flow algorithm to measure the behaviour of
+          poultry, correlating it to several welfare measures in poultry.
+          optical flow is a method commonly used in computer vision to measure
+          the movement of pixels in a video stream. The author of the paper used
+          specialized equipment to collect the video of the poultry, and focused
+          on real-time analysis of the birds. This made it ill suited for the
+          research environment at the University of Saskatchewan where I was
+          studying at the time. At the U of S we already had infrastructure
+          installed to allow for the collection of video which was incompatible
+          with her system. I had a desire to replicate her work in a way that
+          would accept any standard video input, allowing for post-hoc
+          evaluation of the metric. At that time, I had no formal computer
+          science experience or education, so this project exceeded my
+          capabilities. I was successful in creating a function that could take
+          a video input and perform the analysis on it, but it was not efficient
+          or performance-optimized.
+          <br />In 2020 I revisited the project to demonstrate to my colleagues
+          at Chicken Farmers of Ontario how it worked and discuss its
+          applications in the poultry industry. At that time I modified it to
+          create a simple live demonstration. <br /><br />
+          You can check out the project on my GitHub
+          <a href="https://github.com/TheFissk/OpticalFlow">here</a>
+        </p>
+      </div>
+
+      <div id="fraction-estimator" class="Text-Block">
+        <h2 class="Block-Title">Fraction Estimation</h2>
+        <p class="Block-Text">
+          In Early 2021 a friend of mine wanted to know the fractional grade
+          they got when they recieved a grade a 76.83% (They only had a rough
+          idea of how much the project was worth). This seemed like a problem
+          that a computer would be well suited to solving.<br />
+          The first solution I explored was using continued fractions to get
+          closer and closer to estimating the desired decimal. This was fast,
+          but its output was sparse, in this case missing 7/9 which was the
+          simplified version of the mark he recieved: 35/49. <br />
+          The next solution I explored used the Farey Sequence to produce the
+          results. I found an algorithm that would produce the next fraction
+          between two fractions in the sequence. So the fractions 1/3 and 1/2
+          are next to each other when the denominators are less than 4. The
+          algorithm with these inputs would produce 2/5 as its the next fraction
+          between the two. My program used these fractions to output
+          increasingly accurate (fully reduced) fractions until the exact
+          representation was determined. While not as efficient as continued
+          fractions, this algorithm would produce a complete list of fractional
+          esimations starting from the lowest denominator, going to the largest.
+          It was limited by float accuracy, but it only accepted values between
+          0 and 1 where floats are their most accurate to limit this inaccuracy.
+          <br />
+          This programs performance is held back by my homemade greatest common
+          divisor algorithm. Faster execution could likely be achieved if
+          performance was the highest priority. <br /><br />
+          You can check out the project on my GitHub
+          <a
+            href="https://github.com/TheFissk/ClosestFractionEstimator-Farey-Sequence"
+            >here</a
+          >
+        </p>
+      </div>
+
+      <div id="particle-emitter" class="Text-Block">
+        <h2 class="Block-Title">Particle Emitter</h2>
+        <p class="Block-Text">
+          Done for a class on animations, this particular program was
+          laser-focused on producing as many particles using the webgl framework
+          as possible. It achieves this by performing as much of the computation
+          on the graphics card as possible. On my 2080Ti I experienced
+          significant performance bottlenecks at around 80,000 active particles.
+          <br />
+          While this program is already quite effienct, there is still
+          significant room for improvement. My understanding of linear algebra
+          as it applies to graphics was still primitive and there are several
+          optimizations available. I could also shift some of the workload back
+          to the js to help balance the program better as the js currently
+          represents only a small portion of the total frame time. There is also
+          an opportunity to create a fixed object buffer that would have reduced
+          the amount of memory reallocation that the js had to perform each
+          from, reducing the likelyhood of a long frame due to garbage
+          collection. <br /><br />
+          you can view the output
+          <a
+            href="http://www.webdev.cs.uregina.ca/~taf745/cs408/Ass1/Assignment1.html"
+            >here</a
+          >
+          <br /><br />
+          You can check out the project on my GitHub
+          <a href="https://github.com/TheFissk/408-Particles">here</a>
+        </p>
+      </div>
     </div>
   </body>
 </html>
